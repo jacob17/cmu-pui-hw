@@ -1,15 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
   <meta charset="UTF-8">
-  <title>Page Title</title>
-  
-  <body>
-
-    <h1>I am the solution to HW1!</h1>
-
-    <p>
-        And I can link to <a href="./otherpage.html">other pages.</a>
-    </p>
-
-  </body>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Bun Bun Bake Shop</title>
+</head>
+<body>
+  <nav>
+    <img class="logo" src="assets/logo-01.svg" alt="">
+    <div class="navbar">
+      <div class="nav-item active">Products</div>
+      <div class="nav-item">Cart</div>
+    </div>
+    <div class="title">Our hand-made cinnamon rolls</div>
+  </nav>
+  <main>
+    <div class="item-card">
+      <img src="assets/original-cinnamon-roll.jpg" alt="original-cinnamon-roll" class="item-img">
+      <div class="item-title">Original Cinnamon Roll</div>
+      <div class="item-options">
+        <form onsubmit="return false;">
+          <label for="glazing">Glazing:</label>
+          <select name="glazing" id="glazing" style="font-size: 1.1rem;">
+            <option>Keep Original</option>
+            <option>No Glazing</option>
+          </select>
+          <label for="size">Pack Size:</label>
+          <ul class="size">
+            <li class="size-option selected">1</li>
+            <li class="size-option">3</li>
+            <li class="size-option">6</li>
+            <li class="size-option">12</li>
+          </ul>
+          <span class="price">$ 2.49</span>
+          <input type="submit" value="Add To Cart">
+        </form>
+      </div>
+    </div>
+    <div class="item-card">
+      <img src="assets/apple-cinnamon-roll.jpg" alt="original-cinnamon-roll" class="item-img">
+      <div class="item-title">Apple Cinnamon Roll</div>
+      <div class="item-options">
+        <form onsubmit="return false;">
+          <label for="glazing">Glazing:</label>
+          <select name="glazing" id="glazing" style="font-size: 1.1rem;">
+            <option>Keep Original</option>
+            <option>No Glazing</option>
+          </select>
+          <label for="size">Pack Size:</label>
+          <ul class="size">
+            <li class="size-option selected">1</li>
+            <li class="size-option">3</li>
+            <li class="size-option">6</li>
+            <li class="size-option">12</li>
+          </ul>
+          <span class="price">$ 3.49</span>
+          <input type="submit" value="Add To Cart">
+        </form>
+      </div>
+    </div>
+    <div class="item-card">
+      <img src="assets/raisin-cinnamon-roll.jpg" alt="original-cinnamon-roll" class="item-img">
+      <div class="item-title">Raisin Cinnamon Roll</div>
+      <div class="item-options">
+        <form onsubmit="return false;">
+          <label for="glazing">Glazing:</label>
+          <select name="glazing" id="glazing" style="font-size: 1.1rem;">
+            <option>Keep Original</option>
+            <option>No Glazing</option>
+          </select>
+          <label for="size">Pack Size:</label>
+          <ul class="size">
+            <li class="size-option selected">1</li>
+            <li class="size-option">3</li>
+            <li class="size-option">6</li>
+            <li class="size-option">12</li>
+          </ul>
+          <span class="price">$ 2.99</span>
+          <input type="submit" value="Add To Cart">
+        </form>
+      </div>
+    </div>
+    <div class="item-card">
+      <img src="assets/walnut-cinnamon-roll.jpg" alt="original-cinnamon-roll" class="item-img">
+      <div class="item-title">Walnut Cinnamon Roll</div>
+      <div class="item-options">
+        <form onsubmit="return false;">
+          <label for="glazing">Glazing:</label>
+          <select name="glazing" id="glazing" style="font-size: 1.1rem;">
+            <option>Keep Original</option>
+            <option>No Glazing</option>
+          </select>
+          <label for="size">Pack Size:</label>
+          <ul class="size">
+            <li class="size-option selected">1</li>
+            <li class="size-option">3</li>
+            <li class="size-option">6</li>
+            <li class="size-option">12</li>
+          </ul>
+          <span class="price">$ 3.49</span>
+          <input type="submit" value="Add To Cart">
+        </form>
+      </div>
+    </div>
+    <div class="item-card">
+      <img src="assets/double-chocolate-cinnamon-roll.jpg" alt="original-cinnamon-roll" class="item-img">
+      <div class="item-title">Double-chocolate Cinnamon Roll</div>
+      <div class="item-options">
+        <form onsubmit="return false;">
+          <label for="glazing">Glazing:</label>
+          <select name="glazing" id="glazing" style="font-size: 1.1rem;">
+            <option>Keep Original</option>
+            <option>No Glazing</option>
+          </select>
+          <label for="size">Pack Size:</label>
+          <ul class="size">
+            <li class="size-option selected">1</li>
+            <li class="size-option">3</li>
+            <li class="size-option">6</li>
+            <li class="size-option">12</li>
+          </ul>
+          <span class="price">$ 3.99</span>
+          <input type="submit" value="Add To Cart">
+        </form>
+      </div>
+    </div>
+    <div class="item-card">
+      <img src="assets/strawberry-cinnamon-roll.jpg" alt="original-cinnamon-roll" class="item-img">
+      <div class="item-title">Strawberry Cinnamon Roll</div>
+      <div class="item-options">
+        <form onsubmit="return false;">
+          <label for="glazing">Glazing:</label>
+          <select name="glazing" id="glazing" style="font-size: 1.1rem;">
+            <option>Keep Original</option>
+            <option>No Glazing</option>
+          </select>
+          <label for="size">Pack Size:</label>
+          <ul class="size">
+            <li class="size-option selected">1</li>
+            <li class="size-option">3</li>
+            <li class="size-option">6</li>
+            <li class="size-option">12</li>
+          </ul>
+          <span class="price">$ 3.99</span>
+          <input type="submit" value="Add To Cart">
+        </form>
+      </div>
+    </div>
+  </main>
+</body>
 </html>

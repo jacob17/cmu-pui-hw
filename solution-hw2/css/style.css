@@ -73,8 +73,8 @@ nav {
 }
 
 main {
-  margin-left: 10vw;
-  margin-right: 10vw;
+  margin-left: 5vw;
+  margin-right: 5vw;
   margin-top: 70px;
   display: flex;
   flex-flow: row wrap;
@@ -109,12 +109,13 @@ main {
   align-items: center;
 }
 
-.item-options label > input[type=radio] {
+.item-options label>input[type=radio] {
   display: none;
 }
 
 .glazing {
   height: 2.25rem;
+  font-size: 1.1rem;
   width: 100%;
   border: 2px solid black;
   position: relative;

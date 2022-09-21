@@ -17,7 +17,7 @@ const rolls = [
       1: 3.49,
       3: 8.9,
       6: 17.8,
-      12: 35.6	
+      12: 35.6
     },
     img: 'assets/apple-cinnamon-roll.jpg',
   },
@@ -74,12 +74,12 @@ function renderRolls(rolls) {
   rolls.forEach(roll => {
     document.querySelector('main').innerHTML += `
     <div class="item-card">
-      <img src=${roll.img} alt="${roll.alt}-cinnamon-roll" class="item-img">
+      <img src=${roll.img} alt="a picture of a ${roll.alt} cinnamon roll" class="item-img">
       <div class="item-title">${roll.name}</div>
       <div class="item-options">
         <form onsubmit="return false;" id="form-${roll.alt}">
           <label for="glazing">Glazing:</label>
-          <select class="glazing" name="glazing-${roll.alt}" id="glazing-${roll.alt}" style="font-size: 1.1rem;">
+          <select class="glazing" name="glazing-${roll.alt}" id="glazing-${roll.alt}">
             <option value='Keep original'>Keep original</option>
             <option value='Sugar milk'>Sugar milk</option>
             <option value='Vanilla milk'>Vanilla milk</option>
@@ -154,12 +154,12 @@ class Roll {
 Array.from(submitButtons).forEach(submit => {
   submit.addEventListener('click', (event) => {
     event.preventDefault();
-    
-    let rollAlt = event.target.id.substr(7, event.target.id.length-1)
+
+    let rollAlt = event.target.id.substr(7, event.target.id.length - 1)
     let rollForm = document.querySelector("#form-" + rollAlt)
     let rollName = rolls.find(roll => roll.alt === rollAlt).name
 
-    
+
     let rollFormData = new FormData(rollForm)
 
     let rollGlazing = rollFormData.get(`glazing-${rollAlt}`)

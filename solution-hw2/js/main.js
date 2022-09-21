@@ -66,7 +66,6 @@ const rolls = [
     img: 'assets/strawberry-cinnamon-roll.jpg',
   },
 ]
-const glazings = ['Cream Cheese', 'Maple Pecan', 'Simple Glaze', 'Toasted Nuts', 'No Glazing']
 
 renderRolls(rolls)
 
@@ -81,11 +80,10 @@ function renderRolls(rolls) {
         <form onsubmit="return false;" id="form-${roll.alt}">
           <label for="glazing">Glazing:</label>
           <select class="glazing" name="glazing-${roll.alt}" id="glazing-${roll.alt}" style="font-size: 1.1rem;">
-            <option value='Cream Cheese'>Cream Cheese</option>
-            <option value='Maple Pecan'>Maple Pecan</option>
-            <option value='Simple Glaze'>Simple Glaze</option>
-            <option value='Toasted Nuts'>Toasted Nuts</option>
-            <option value='No Glazing'>No Glazing</option>
+            <option value='Keep original'>Keep original</option>
+            <option value='Sugar milk'>Sugar milk</option>
+            <option value='Vanilla milk'>Vanilla milk</option>
+            <option value='Double chocolate'>Double chocolate</option>
           </select>
           <label for="pack">Pack Size:</label>
           <ul class="pack">

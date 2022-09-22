@@ -2,69 +2,77 @@ const rolls = [
   {
     name: 'Original Cinnamon Roll',
     alt: 'original',
-    prices: {
-      1: 2.49,
-      3: 6.35,
-      6: 12.7,
-      12: 25.4
-    },
+    basePrice: 2.49,
     img: 'assets/original-cinnamon-roll.jpg',
   },
   {
     name: 'Apple Cinnamon Roll',
     alt: 'apple',
-    prices: {
-      1: 3.49,
-      3: 8.9,
-      6: 17.8,
-      12: 35.6
-    },
+    basePrice: 3.49,
     img: 'assets/apple-cinnamon-roll.jpg',
   },
   {
     name: 'Raisin Cinnamon Roll',
     alt: 'raisin',
-    prices: {
-      1: 2.99,
-      3: 7.63,
-      6: 15.25,
-      12: 30.5
-    },
+    basePrice: 2.99,
     img: 'assets/raisin-cinnamon-roll.jpg',
   },
   {
     name: 'Walnut Cinnamon Roll',
     alt: 'walnut',
-    prices: {
-      1: 3.49,
-      3: 8.9,
-      6: 17.8,
-      12: 35.6
-    },
+    basePrice: 3.49,
     img: 'assets/walnut-cinnamon-roll.jpg',
   },
   {
     name: 'Double-chocolate Cinnamon Roll',
     alt: 'double-chocolate',
-    prices: {
-      1: 3.99,
-      3: 10.18,
-      6: 20.35,
-      12: 40.7
-    },
+    basePrice: 3.99,
     img: 'assets/double-chocolate-cinnamon-roll.jpg',
   },
   {
     name: 'Strawberry Cinnamon Roll',
     alt: 'strawberry',
-    prices: {
-      1: 3.99,
-      3: 10.18,
-      6: 20.35,
-      12: 40.7
-    },
+    basePrice: 3.99,
     img: 'assets/strawberry-cinnamon-roll.jpg',
   },
+]
+
+const packs = [
+  {
+    pack: 1,
+    multiplier: 1
+  },
+  {
+    pack: 3,
+    multiplier: 3
+  },
+  {
+    pack: 6,
+    multiplier: 5
+  },
+  {
+    pack: 12,
+    multiplier: 10
+  },
+]
+
+const glazings = [
+  {
+    glaze: 'Keep original',
+    cost: 0
+  },
+  {
+    glaze: 'Sugar milk',
+    cost: 0
+  },
+  {
+    glaze: 'Vanilla milk',
+    cost: 0.5
+  },
+  {
+    glaze: 'Double chocolate',
+    cost: 1.5
+  }
 ]
 
 renderRolls(rolls)
@@ -80,10 +88,6 @@ function renderRolls(rolls) {
         <form onsubmit="return false;" id="form-${roll.alt}">
           <label for="glazing">Glazing:</label>
           <select class="glazing" name="glazing-${roll.alt}" id="glazing-${roll.alt}">
-            <option value='Keep original'>Keep original</option>
-            <option value='Sugar milk'>Sugar milk</option>
-            <option value='Vanilla milk'>Vanilla milk</option>
-            <option value='Double chocolate'>Double chocolate</option>
           </select>
           <label for="pack">Pack Size:</label>
           <ul class="pack">
@@ -112,6 +116,7 @@ function renderRolls(rolls) {
       </div>
     </div>
     `
+    document.querySelector('')
   })
 }
 

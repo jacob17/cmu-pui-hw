@@ -6,7 +6,6 @@ class Itemcard extends Component {
     this.state = {
       itemData: [
         {
-          name: 'Original Cinnamon Roll',
           alt: 'original',
           prices: {
             1: 2.49,
@@ -14,10 +13,8 @@ class Itemcard extends Component {
             6: 12.7,
             12: 25.4
           },
-          img: 'assets/original-cinnamon-roll.jpg',
         },
         {
-          name: 'Apple Cinnamon Roll',
           alt: 'apple',
           prices: {
             1: 3.49,
@@ -25,10 +22,8 @@ class Itemcard extends Component {
             6: 17.8,
             12: 35.6
           },
-          img: 'assets/apple-cinnamon-roll.jpg',
         },
         {
-          name: 'Raisin Cinnamon Roll',
           alt: 'raisin',
           prices: {
             1: 2.99,
@@ -36,10 +31,8 @@ class Itemcard extends Component {
             6: 15.25,
             12: 30.5
           },
-          img: 'assets/raisin-cinnamon-roll.jpg',
         },
         {
-          name: 'Walnut Cinnamon Roll',
           alt: 'walnut',
           prices: {
             1: 3.49,
@@ -47,10 +40,8 @@ class Itemcard extends Component {
             6: 17.8,
             12: 35.6
           },
-          img: 'assets/walnut-cinnamon-roll.jpg',
         },
         {
-          name: 'Double-chocolate Cinnamon Roll',
           alt: 'double-chocolate',
           prices: {
             1: 3.99,
@@ -58,10 +49,8 @@ class Itemcard extends Component {
             6: 20.35,
             12: 40.7
           },
-          img: 'assets/double-chocolate-cinnamon-roll.jpg',
         },
         {
-          name: 'Strawberry Cinnamon Roll',
           alt: 'strawberry',
           prices: {
             1: 3.99,
@@ -69,7 +58,6 @@ class Itemcard extends Component {
             6: 20.35,
             12: 40.7
           },
-          img: 'assets/strawberry-cinnamon-roll.jpg',
         }
       ]
     }
@@ -77,8 +65,8 @@ class Itemcard extends Component {
   render() {
     return (
       <div class="item-card">
-        <img src={process.env.PUBLIC_URL + '/' +this.state.itemData[this.props.index].img} alt={`a picture of a ${this.state.itemData[this.props.index].alt} cinnamon roll`} class="item-img" />
-        <div class="item-title">{this.state.itemData[this.props.index].name}</div>
+        <img src={process.env.PUBLIC_URL + '/' +this.props.imgURL} alt={`a picture of a ${this.state.itemData[this.props.index].alt} cinnamon roll`} class="item-img" />
+        <div class="item-title">{this.props.name}</div>
           <div class="item-options">
           <form onsubmit="return false;" id={`form-${this.state.itemData[this.props.index].alt}`}>
               <label for="glazing">Glazing:</label>

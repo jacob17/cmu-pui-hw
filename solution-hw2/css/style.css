@@ -1,11 +1,11 @@
 @font-face {
   font-family: "D-DIN";
-  src: local('D-DIN'), url("/solution-hw2/assets/fonts/d-din/D-DIN.otf");
+  src: local('D-DIN'), url("../assets/fonts/d-din/D-DIN.otf");
 }
 
 @font-face {
   font-family: "D-DIN";
-  src: local('D-DIN'), url("/solution-hw2/assets/fonts/d-din/D-DIN-Bold.otf");
+  src: local('D-DIN'), url("../assets/fonts/d-din/D-DIN-Bold.otf");
   font-weight: bold;
 }
 

@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/cmu-pui-hw/solution-hw3/static/css/main.f02a24a6.css",
+    "main.js": "/cmu-pui-hw/solution-hw3/static/js/main.d1c07cfa.js",
+    "static/js/787.e7d93d16.chunk.js": "/cmu-pui-hw/solution-hw3/static/js/787.e7d93d16.chunk.js",
+    "static/media/D-DIN-Bold.otf": "/cmu-pui-hw/solution-hw3/static/media/D-DIN-Bold.7bb4b1a4a4621668d12a.otf",
+    "static/media/D-DIN.otf": "/cmu-pui-hw/solution-hw3/static/media/D-DIN.31d456695bd8dea72c8a.otf",
+    "index.html": "/cmu-pui-hw/solution-hw3/index.html",
+    "main.f02a24a6.css.map": "/cmu-pui-hw/solution-hw3/static/css/main.f02a24a6.css.map",
+    "main.d1c07cfa.js.map": "/cmu-pui-hw/solution-hw3/static/js/main.d1c07cfa.js.map",
+    "787.e7d93d16.chunk.js.map": "/cmu-pui-hw/solution-hw3/static/js/787.e7d93d16.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f02a24a6.css",
+    "static/js/main.d1c07cfa.js"
+  ]
+}

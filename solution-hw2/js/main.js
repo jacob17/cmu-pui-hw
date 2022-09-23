@@ -63,7 +63,7 @@ const glazings = [
   },
   {
     glaze: 'Sugar milk',
-    cost: 0
+    cost: 0.0001
   },
   {
     glaze: 'Vanilla milk',
@@ -80,58 +80,68 @@ renderRolls(rolls)
 function renderRolls(rolls) {
   document.querySelector('main').innerHTML = ""
   rolls.forEach(roll => {
-    document.querySelector('main').innerHTML += `
+    let htmlString = ""
+    htmlString += `
     <div class="item-card">
       <img src=${roll.img} alt="a picture of a ${roll.alt} cinnamon roll" class="item-img">
       <div class="item-title">${roll.name}</div>
       <div class="item-options">
         <form onsubmit="return false;" id="form-${roll.alt}">
           <label for="glazing">Glazing:</label>
-          <select class="glazing" name="glazing-${roll.alt}" id="glazing-${roll.alt}">
-          </select>
+          <select class="glazing" name="glazing-${roll.alt}" id="glazing-${roll.alt}">`
+    
+    glazings.forEach(glazing => {
+      htmlString += `
+        <option value=${glazing.cost}>${glazing.glaze}</option>
+      `
+    })
+  
+    htmlString += `</select>
           <label for="pack">Pack Size:</label>
-          <ul class="pack">
-            <label for="one" class="pack-option selected">
-              <input type="radio" name="pack-${roll.alt}" value=1 checked>
-              1
-            </label>
-            <label for="three" class="pack-option">
-              <input type="radio" name="pack-${roll.alt}" value=3>
-              3
-            </label>
-            <label for="six" class="pack-option">
-              <input type="radio" name="pack-${roll.alt}" value=6>
-              6
-            </label>
-            <label for="twelve" class="pack-option">
-              <input type="radio" name="pack-${roll.alt}" value=12>
-              12
-            </label>
-          </ul>
+          <ul class="pack" id="pack-${roll.alt}">`
+
+    packs.forEach(pack => {
+      if (pack.pack === 1) {
+        htmlString += `
+        <label class="pack-option selected">
+          <input type="radio" name="pack-${roll.alt}" value=${pack.multiplier} checked>
+          ${pack.pack}
+        </label>
+      `} else {
+        htmlString += `
+        <label class="pack-option">
+          <input type="radio" name="pack-${roll.alt}" value=${pack.multiplier} checked>
+          ${pack.pack}
+        </label>
+      `
+      }
+    })
+
+    htmlString += `</ul>
           <span class="price-label">
-            $<span id="price-${roll.alt}">${roll.prices[1]}</span>
+            $<span id="price-${roll.alt}">${roll.basePrice}</span>
           </span>
           <input type="submit" value="Add To Cart" id="submit-${roll.alt}" name="form-${roll.alt}">
         </form>
       </div>
     </div>
     `
-    document.querySelector('')
+
+    document.querySelector('main').innerHTML += htmlString
   })
 }
 
 
+const packBoxes = document.querySelectorAll('.pack')
 
-
-const optionBoxes = document.querySelectorAll('.pack')
-
-Array.from(optionBoxes).forEach(boxes => {
+Array.from(packBoxes).forEach(boxes => {
   boxes.addEventListener('click', (event) => {
     const target = event.target
     if (target.classList.contains('pack-option')) {
       const options = target.parentElement.children
       const rollAlt = target.firstElementChild.name.substr(5, target.firstElementChild.name.length - 1)
-      const rollPack = target.firstElementChild.value
+      const rollGlazing = parseFloat(target.closest('form').querySelector('.glazing').value)
+      const rollPack = parseInt(target.firstElementChild.value)
       Array.from(options).forEach(option => {
         option.classList.remove('selected')
         option.firstElementChild.checked = false
@@ -139,10 +149,26 @@ Array.from(optionBoxes).forEach(boxes => {
       target.classList.add('selected')
       target.firstElementChild.checked = true
       const priceLabel = document.querySelector(`#price-${rollAlt}`)
-      priceLabel.innerText = rolls.find(roll => roll.alt === rollAlt).prices[`${rollPack}`]
+      const price = rolls.find(roll => roll.alt === rollAlt).basePrice
+      priceLabel.innerText = Math.round(((price + rollGlazing) * rollPack) * 100) / 100
     }
   })
 })
+
+const glazingBoxes = document.querySelectorAll('.glazing')
+Array.from(glazingBoxes).forEach(boxes => {
+  boxes.addEventListener('change', (event) => {
+    const target = event.target
+    const rollAlt = target.name.substr(8, target.name.length - 1)
+    const rollGlazing = parseFloat(target.value)
+    const priceLabel = document.querySelector(`#price-${rollAlt}`)
+    const rollPack = parseInt(target.closest('form').querySelector('.pack').querySelector('.selected').firstElementChild.value)
+    const price = rolls.find(roll => roll.alt === rollAlt).basePrice
+    console.log(target.closest('form').querySelector('.pack'))
+    priceLabel.innerText = Math.round(((price + rollGlazing) * rollPack) * 100) / 100
+  })
+})
+
 
 const submitButtons = document.querySelectorAll('input[type="submit"]')
 let shoppingCart = []
@@ -167,9 +193,13 @@ Array.from(submitButtons).forEach(submit => {
 
     let rollFormData = new FormData(rollForm)
 
-    let rollGlazing = rollFormData.get(`glazing-${rollAlt}`)
-    let rollPack = rollFormData.get(`pack-${rollAlt}`)
-    let rollPrice = rolls.find(roll => roll.alt === rollAlt).prices[`${rollPack}`]
+    let rollGlazing = glazings.find(glazing => glazing.cost === parseFloat(rollFormData.get(`glazing-${rollAlt}`))).glaze
+    let rollGlazingCost = parseFloat(rollFormData.get(`glazing-${rollAlt}`))
+    let rollPack = packs.find(pack => pack.multiplier === parseInt(rollFormData.get(`pack-${rollAlt}`))).pack
+    let rollPackMultiplier = parseInt(rollFormData.get(`pack-${rollAlt}`))
+    let rollBasePrice = rolls.find(roll => roll.alt === rollAlt).basePrice
+    let rollPrice = Math.round(((rollBasePrice + rollGlazingCost) * rollPackMultiplier) * 100) / 100
+    console.log(rollPrice)
     let newRoll = new Roll(rollName, rollGlazing, rollPack, rollPrice)
 
     shoppingCart.push(newRoll)

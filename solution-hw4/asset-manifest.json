@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/cmu-pui-hw/solution-hw4/static/css/main.073c9b0a.css",
+    "main.js": "/cmu-pui-hw/solution-hw4/static/js/main.bd0637cf.js",
+    "static/js/787.db158cd5.chunk.js": "/cmu-pui-hw/solution-hw4/static/js/787.db158cd5.chunk.js",
+    "static/media/logo.svg": "/cmu-pui-hw/solution-hw4/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/cmu-pui-hw/solution-hw4/index.html",
+    "main.073c9b0a.css.map": "/cmu-pui-hw/solution-hw4/static/css/main.073c9b0a.css.map",
+    "main.bd0637cf.js.map": "/cmu-pui-hw/solution-hw4/static/js/main.bd0637cf.js.map",
+    "787.db158cd5.chunk.js.map": "/cmu-pui-hw/solution-hw4/static/js/787.db158cd5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.bd0637cf.js"
+  ]
+}

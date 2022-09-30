@@ -53,6 +53,8 @@ class App extends Component {
         }
       ],
       cartData: [],
+      totalPrice: 0,
+      totalCount: 0,
       showAlert: false
     }
   }
@@ -64,6 +66,20 @@ class App extends Component {
       ...prevState,
       cartData: newCartData,
       showAlert: true
+    }), this.handleTotals())
+  }
+
+  handleTotals = () => {
+    let totalPrice = parseInt(this.state.cartData.reduce((acc, obj) => {
+      return acc + obj.price
+    }, 0) * 100) / 100
+    let totalCount = this.state.cartData.reduce((acc, obj) => {
+      return acc + obj.count
+    }, 0)
+    this.setState(prevState => ({
+      ...prevState,
+      totalPrice: totalPrice,
+      totalCount: totalCount
     }))
   }
 
@@ -77,12 +93,6 @@ class App extends Component {
 
   displayAlert = () => {
     if (this.state.showAlert) {
-      let totalPrice = parseInt(this.state.cartData.reduce((acc, obj) => {
-        return acc + obj.price
-      }, 0)*100)/100
-      let totalCount = this.state.cartData.reduce((acc, obj) => {
-        return acc + obj.count
-      }, 0)
       return <div className="alert show">
         Added to cart:<br />
         <br />
@@ -90,10 +100,17 @@ class App extends Component {
         <span className="alert-glazing">{this.state.cartData[this.state.cartData.length - 1].glaze}</span><br />
         Pack of <span className="alert-pack">{this.state.cartData[this.state.cartData.length - 1].pack}</span><br />
         Price: $ <span className="alert-price">{this.state.cartData[this.state.cartData.length - 1].price}</span><br />
-        Total Price: $<span>{totalPrice}</span><br />
-        Total Items: <span>{totalCount}</span>
+        Total Price: $<span>{this.state.totalPrice}</span><br />
+        Total Items: <span>{this.state.totalCount}</span>
       </div>
     }
+  }
+
+  displayNavTotal = () => {
+      return <div className="cart-summary">
+        <span className="cart-count">{this.state.totalCount} item</span><br />
+        <span className="cart-total">$ {this.state.totalPrice}</span>
+      </div>
   }
 
   render() {
@@ -102,10 +119,7 @@ class App extends Component {
         <nav>
           <img className="logo" src={process.env.PUBLIC_URL + "/assets/logo-01.svg"} alt="logo" />
           <Navbar />
-          <div className="cart-summary">
-            <span className="cart-count">0 item</span><br />
-            <span className="cart-total">$ 0</span>
-          </div>
+          {this.displayNavTotal()}
           <div className="title">Our hand-made cinnamon rolls</div>
         </nav>
         <main>

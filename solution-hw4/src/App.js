@@ -14,42 +14,37 @@ class App extends Component {
           alt: 'original',
           basePrice: 2.49,
           img: 'assets/original-cinnamon-roll.jpg',
-          // handleCallback: this.handleCallback.bind(this)
+          handleCallback: this.handleCallback.bind(this)
         },
         {
           name: 'Apple Cinnamon Roll',
           alt: 'apple',
           basePrice: 3.49,
           img: 'assets/apple-cinnamon-roll.jpg',
-          // handleCallback: this.handleCallback.bind(this)
         },
         {
           name: 'Raisin Cinnamon Roll',
           alt: 'raisin',
           basePrice: 2.99,
           img: 'assets/raisin-cinnamon-roll.jpg',
-          // handleCallback: this.handleCallback.bind(this)
         },
         {
           name: 'Walnut Cinnamon Roll',
           alt: 'walnut',
           basePrice: 3.49,
           img: 'assets/walnut-cinnamon-roll.jpg',
-          // handleCallback: this.handleCallback.bind(this)
         },
         {
           name: 'Double-chocolate Cinnamon Roll',
           alt: 'double-chocolate',
           basePrice: 3.99,
           img: 'assets/double-chocolate-cinnamon-roll.jpg',
-          // handleCallback: this.handleCallback.bind(this)
         },
         {
           name: 'Strawberry Cinnamon Roll',
           alt: 'strawberry',
           basePrice: 3.99,
           img: 'assets/strawberry-cinnamon-roll.jpg',
-          // handleCallback: this.handleCallback.bind(this)
         }
       ],
       cartData: [],
@@ -123,63 +118,16 @@ class App extends Component {
           <div className="title">Our hand-made cinnamon rolls</div>
         </nav>
         <main>
-          {/* {this.state.rollData.map(function (roll, idx) {
+          {this.state.rollData.map(function (roll, idx) {
             return <Roll
               key={idx}
               rollName={roll.name}
               rollAlt={roll.alt}
               rollPrice={roll.basePrice}
               rollImg={roll.img}
-              rollCallback={() => this.handleCallback()}
+              rollCallback={this.handleCallback}
                />
-          })} */}
-          <Roll
-            rollName={this.state.rollData[0].name}
-            rollAlt={this.state.rollData[0].alt}
-            rollPrice={this.state.rollData[0].basePrice}
-            rollImg={this.state.rollData[0].img}
-            rollCallback={this.handleCallback}
-            rollAlert={this.handleAlert}
-          />
-          <Roll
-            rollName={this.state.rollData[1].name}
-            rollAlt={this.state.rollData[1].alt}
-            rollPrice={this.state.rollData[1].basePrice}
-            rollImg={this.state.rollData[1].img}
-            rollCallback={this.handleCallback}
-            rollAlert={this.handleAlert}
-          />
-          <Roll
-            rollName={this.state.rollData[2].name}
-            rollAlt={this.state.rollData[2].alt}
-            rollPrice={this.state.rollData[2].basePrice}
-            rollImg={this.state.rollData[2].img}
-            rollCallback={this.handleCallback}
-            rollAlert={this.handleAlert}
-          />
-          <Roll
-            rollName={this.state.rollData[3].name}
-            rollAlt={this.state.rollData[3].alt}
-            rollPrice={this.state.rollData[3].basePrice}
-            rollImg={this.state.rollData[3].img}
-            rollCallback={this.handleCallback}
-            rollAlert={this.handleAlert}
-          />
-          <Roll
-            rollName={this.state.rollData[4].name}
-            rollAlt={this.state.rollData[4].alt}
-            rollPrice={this.state.rollData[4].basePrice}
-            rollImg={this.state.rollData[4].img}
-            rollCallback={this.handleCallback}
-          />
-          <Roll
-            rollName={this.state.rollData[5].name}
-            rollAlt={this.state.rollData[5].alt}
-            rollPrice={this.state.rollData[5].basePrice}
-            rollImg={this.state.rollData[5].img}
-            rollCallback={this.handleCallback}
-            rollAlert={this.handleAlert}
-          />
+          }, this)}
         </main>
         {this.displayAlert()}
       </div>

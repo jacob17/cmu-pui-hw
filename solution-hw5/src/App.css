@@ -226,3 +226,13 @@ main {
 .alert-name {
   font-weight: bold;
 }
+
+.cart-content {
+  display: flex;
+}
+
+.cart-roll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -168,6 +168,16 @@ class App extends Component {
       }))
     }
   }
+  
+  handleRemove = (rollIndex) => {
+    const updatedCart = this.state.cartData
+    updatedCart.splice(rollIndex, 1)
+    this.setState(prevState => ({
+      ...prevState,
+      cartData: updatedCart
+    }))
+    this.handleTotals()
+  }
 
   render() {
     return (
@@ -182,23 +192,25 @@ class App extends Component {
           <div className="title">Our hand-made cinnamon rolls</div>
         </nav>
         <section 
-        role='cart' 
+        role='cart'
         style={this.state.cartDisplay ? {display: 'block'}: {display: 'none'}}
         >
           <div className="cart-title">
-            <span>Shopping Cart ({this.totalCount ? this.totalCount : 0} item)</span>
-            <span>Total: ${this.totalPrice ? this.totalPrice : 0}</span>
+            <span>Shopping Cart ({this.state.totalCount ? this.state.totalCount : 0} item)</span>
+            <span>Total: ${this.state.totalPrice ? this.state.totalPrice : 0}</span>
           </div>
-          <div className="cart-content">
+          <div className="cart-content" style={{overflowX: 'scroll'}}>
             {this.state.cartData.map(function (roll, idx) {
               return <CartRoll
                 key={idx}
+                rollIndex={idx}
                 rollName={roll.name} //
                 rollAlt={this.state.rollData.find(o => o.name === roll.name).alt}
                 rollPrice={roll.price} //
-                rollGlazing={roll.glazing} //
+                rollGlazing={roll.glaze} //
                 rollPack={roll.pack} //
-                rollImg={this.state.rollData.find(o => o.name === roll.name).img} />
+                rollImg={this.state.rollData.find(o => o.name === roll.name).img}
+                onRemove={this.handleRemove} />
             }, this)}
           </div>
         </section>
